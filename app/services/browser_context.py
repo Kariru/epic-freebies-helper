@@ -86,7 +86,9 @@ def _browser_proxy_options() -> dict[str, str] | None:
 
 
 def _camoufox_launch_options(headless: bool | str, proxy: dict[str, str] | None) -> dict:
-    from browserforge.fingerprints import Screen
+    # camoufox >=0.5 ships its own Screen (same fields as the browserforge one,
+    # which it replaced) and rejects anything lacking `as_conditions()`.
+    from camoufox.fingerprints import Screen
 
     screen = Screen(max_width=1920, max_height=1080, min_height=1080, min_width=1920)
     firefox_user_prefs = {"network.dns.disableIPv6": True, "network.trr.mode": 5}
