@@ -139,6 +139,7 @@ def _is_camoufox_bootstrap_error(err: Exception) -> bool:
             "api.github.com/repos/daijro/camoufox/releases",
             "rate limit exceeded",
             "profile was last used with a newer version",
+            "unknown property",
             "browsertype.launch_persistent_context: target page, context or browser has been closed",
         )
     )
